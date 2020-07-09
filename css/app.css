@@ -1,0 +1,438 @@
+﻿/* ======================================================================== */
+/* Copyright (c) 2020                                                       */
+/* ------------------------------------------------------------------------ */
+/* Historie : xx.xx.xxxx (Erstellung)                                       */
+/*                                                                          */
+/* Azure DevOps                                                             */
+/* ------------                                                             */
+/* ======================================================================== */
+
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* https://colorate.azurewebsites.net/de/Color/DF6BBD */
+    background: linear-gradient(0.25turn, #DFA1CD, #ebf8e1, #F5B6E2);
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.main {
+    flex: 1;
+    font-size: 1.0em;
+    text-align: justify;
+    font-family: arial;
+    z-index: 999;
+}
+
+.main .top-row {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    z-index: 999;
+}
+
+.main .top-row > a, .main .top-row .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+    z-index: 999;
+}
+
+.main .top-row a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 999;
+}
+
+a, .btn-link {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar {
+    /* background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%); */
+    background-image: linear-gradient(180deg, #4D2340, #7A0557 70%);
+}
+
+.sidebar .top-row {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.sidebar .navbar-brand {
+    font-size: 1.1rem;
+}
+
+.sidebar .oi {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.sidebar .nav-item {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+.sidebar .nav-item:first-of-type {
+    padding-top: 1rem;
+}
+
+.sidebar .nav-item:last-of-type {
+    padding-bottom: 1rem;
+}
+
+.sidebar .nav-item a {
+    color: #d7d7d7;
+    border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+}
+
+.sidebar .nav-item a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.sidebar .nav-item a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+/*
+    https://www.mediaevent.de/css/media-queries.html
+    Media Queries fragen Eigenschaften des Monitors ab, um sowohl
+    mobilen Geräten als auch großen Desktop-Monitoren entgegenzukommen.
+    Media Queries kombinieren CSS-Eigenschaften mit logischen Abfragen
+    nach Eigenschaften von Geräten. CSS @media-Regeln legen je nach
+    Höhe, Breite oder Orientierung (Portrait oder Landscape) des
+    Viewports unterschiedliche CSS-Eigenschaften für Gerätetpyen fest.
+
+    Eine @media-Regel legt einen Breakpoint fest – ein Bruchpunkt oder
+    eine Bedingung, an dem sich das Layout ändert, um sich besser an
+    eine Geräteklasse anzupassen. CSS-Eigenschaften, die nicht
+    innerhalb einer @media-Regel stehen, gelten für alle Geräteklassen
+    und zielen in erster Linie auf die kleinsten Geräte (zumeist auf
+    Smartphones) ab. Von hier aus legen weitere Breakpoints die CSS-
+    Eigenschaften für größere Viewports fest.
+    
+    Media Queries überschreiben nur die Eigenschaften, die sich bei
+    einem Breakpoint ändern oder neu hinzukommen.
+*/
+
+/*
+    ---
+    max-width: 767.98px
+    ---
+*/
+
+@media (max-width: 767.98px) {
+    .main .top-row:not(.auth) {
+        display: none;
+    }
+
+    .main .top-row.auth {
+        justify-content: space-between;
+    }
+
+    .main .top-row a, .main .top-row .btn-link {
+        margin-left: 0;
+    }
+}
+
+/*
+    ---
+    min-width: 768px
+    ---
+*/
+
+@media (min-width: 768px) {
+    app {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .main .top-row {
+        position: sticky;
+        top: 0;
+    }
+
+    .main > div {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    .sidebar .collapse {
+        display: block;
+    }
+}
+
+/*
+    ---
+    Meine Vereinbarungen
+    ---
+*/
+
+figure {
+    float: left;
+    font-family: arial;
+    font-style: normal;
+    font-size: xx-small;
+    text-indent: 0;
+    border: thin silver solid;
+    margin: 1em;
+    padding: 1em;
+}
+
+h1 {
+    font-family: arial;
+    font-size: 2.0em;
+    background-color: #7A0557;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    font-family: arial;
+    font-size: 1.0em;
+    background-color: #7A0557;
+    color: white;
+    text-align: center;
+}
+
+.mein-textblock-design {
+    font-family: arial;
+    font-size: 1.0em;
+    /* https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/Textausrichtung/text-align
+       Sie können mit der Eigenschaft text-align die Ausrichtung von Text und inline-Elementen wie Bildern (img) oder Iframes (iframe), etc. innerhalb eines Blocklevel-Elements kontrollieren.
+       Die Eigenschaft text-align kann folgende Werte annehmen:
+       - left: für linksbündige Ausrichtung
+       - right: für rechtsbündige Ausrichtung
+       - center: für zentrierte Ausrichtung
+       - justify: Blocksatz
+       - inherit: erbt die Ausrichtung vom Elternelement
+    */
+    text-align: justify;
+    /*
+       https://wiki.selfhtml.org/wiki/CSS/Eigenschaften/Textausrichtung/hyphens
+       Mit der Eigenschaft hyphens (engl. hyphen - Bindestrich) können Sie eine automatische Worttrennung einrichten.
+       Folgende Angaben sind möglich:
+       - manual, keine automatische Silbentrennung, Voreinstellung, bedingte Trennstriche (&shy; bzw. &#173;) werden beachtet
+       - none, keine automatische Silbentrennung, bedingte Trennstriche werden unterdrückt, Umbruch erfolgt ausschließlich an Leerzeichen
+       - auto, automatische Silbentrennung, manuell definierte bedingte Trennstriche werden dabei vorgezogen.
+       - inherit, Einstellung des Elternelements
+    */
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+/*
+    ---
+    Laden ...
+    ---
+*/
+
+.loading-section {
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.loading-section h2 {
+    background-color:transparent;
+    color: #000;
+}
+
+.loader-dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #7A0557;
+    display: inline-block;
+    -webkit-animation: grow 2.1s infinite ease-in-out both;
+    animation: grow 2.1s infinite ease-in-out both;
+}
+
+.loader-dot.dot1 {
+    -webkit-animation-delay: -0.96s;
+    animation-delay: -0.96s;
+}
+
+.loader-dot.dot2 {
+    -webkit-animation-delay: -0.48s;
+    animation-delay: -0.48s;
+}
+
+@-webkit-keyframes grow {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0)
+    }
+
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+/*
+    ---
+    Links enabled / disabled
+    ---
+*/
+
+.disabled {
+    pointer-events: none
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/*
+    ---
+    Breadcrumbs
+    ---
+*/
+
+/*
+    ---
+    Sticky
+    ---
+*/
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    right: 0px;
+    background-color: #84506A;
+    border: 2px solid #050103;
+    border-radius: 20px 20px 0 0;
+    width: 250px;
+    height: 80px;
+    text-align: left;
+    color: white;
+    font-size: x-small;
+    z-index: 1000;
+}
+
+/*
+    ---
+    modal
+    ---
+*/
+
+.blazored-custom-modal {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 60vh;
+    background-color: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #fff;
+    padding: 0.5rem;
+    z-index: 102;
+    box-shadow: 0 2px 2px rgba(0,0,0,.75);
+}
+
+.blazored-prompt-modal {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    background-color: #fefefe;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    padding: 0.5rem;
+    z-index: 102;
+    box-shadow: 0 2px 2px rgba(0,0,0,.75);
+}
+
+    .blazored-prompt-modal .blazored-modal-header {
+        display: none;
+    }
+
+/*
+    ---
+    dropdown-menu
+    ---
+*/
+
+.dropdown-menu > a:focus,
+.dropdown-menu > a:hover {
+    text-decoration: underline;
+    color: pink;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Ende der Datei                                                           */
+/* ------------------------------------------------------------------------ */
